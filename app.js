@@ -4,17 +4,14 @@ var config = {
     data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-            label: 'My First dataset',
-            data: [10, 9, 8, 7, 6, 5],
+            label: 'Mothly Weight',
+            steppedLine: 'before',
+            data: [10, 9, 8, 7, 6, 5, 4],
             fill: false,
         }]
     },
     options: {
         responsive: true,
-        title: {
-            display: true,
-            text: 'Chart.js Line Chart'
-        },
         tooltips: {
             mode: 'index',
             intersect: false,
@@ -42,5 +39,24 @@ var config = {
     }
 };
 
+
 var myChart = new Chart(ctx, config);
+printBtn();
+
+
+var monthButtonArray = document.getElementById("monthButtonArray");
+var buttonLabels = ['January', 'Febuary', 'March', 'April', 'May', 
+'June', 'July', 'August', 'September', 'October', 
+'November', 'December'];
+
+function printBtn(){
+    for (var i = 0; i < buttonLabels.length; i++){
+        var btn = document.createElement("Button");
+        var btnLabel = document.createTextNode(buttonLabels[i]);
+        btn.appendChild(btnLabel);
+        monthButtonArray.appendChild(btn);
+    }
+}
+
+
 
