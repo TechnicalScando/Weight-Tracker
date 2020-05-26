@@ -1,14 +1,18 @@
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>Weight Tracker</title>
     </head>
     <body>
-        <h1>Weight Tracker App</h1>
-        <div id="monthButtonArray">
-            <h3>Filter by Month</h3> 
+        <div id="grid">
+            <h1 id="header">Weight Tracker App</h1>
+            <div id="monthButtonArray">
+                <h3>Filter by Month</h3> 
+            </div>
+            <canvas id="weightChart" width="1233" height="700"></canvas>
+            <div id="dataTable" width="100%"></div>
         </div>
-        <canvas id="weightChart" width="400" height="400"></canvas>
-        <div id="dataTable"></div>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
         <script src="./app.js"></script>    
     </body>

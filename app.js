@@ -11,7 +11,7 @@ var config = {
         }]
     },
     options: {
-        responsive: true,
+        responsive: false,
         tooltips: {
             mode: 'index',
             intersect: false,
@@ -66,17 +66,22 @@ function createTable(){
     
     var table = document.createElement('table');
     table.border = 1;
-
+    table.width = '100%';
+    table.height = '100%';
+    
     var tableBody = document.createElement('tbody');
+    tableBody.width = '100%';
+    tableBody.height = '100%';
     table.appendChild(tableBody);
 
-    for (var i = 0; i < 3; i++){
+    for (var i = 0; i < 10; i++){
         var tr = document.createElement('tr');
         tableBody.appendChild(tr);
 
-        for(var j = 0; j < 2; j++){
+
+        for(var j = 0; j < 9; j++){
             var td = document.createElement('td');
-            td.width = '75';
+            td.width = '10px';
             td.appendChild(document.createTextNode("'Cell " + i + "," + j));
             tr.appendChild(td);
         
