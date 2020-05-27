@@ -4,7 +4,7 @@ var config = {
     data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-            label: 'Mothly Weight',
+            label: 'Monthly Weight',
             steppedLine: 'before',
             data: [10, 9, 8, 7, 6, 5, 4],
             fill: false,
@@ -39,7 +39,7 @@ var config = {
     }
 };
 var monthButtonArray = document.getElementById("monthButtonArray");
-var buttonLabels = ['January', 'Febuary', 'March', 'April', 'May', 
+var buttonLabels = ['January', 'February', 'March', 'April', 'May', 
 'June', 'July', 'August', 'September', 'October', 
 'November', 'December'];
 var tableDiv = document.getElementById('dataTable');
@@ -49,8 +49,6 @@ var tableDiv = document.getElementById('dataTable');
 var myChart = new Chart(ctx, config);
 printBtn();
 createTable();
-
-
 
 function printBtn(){
     for (var i = 0; i < buttonLabels.length; i++){
@@ -90,4 +88,14 @@ function createTable(){
     tableDiv.appendChild(table);
     
 }
+
+function generateDayOfData(){
+    var dayOfData = [];
+
+
+}
+
+
+
+
 
