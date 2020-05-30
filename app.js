@@ -1,39 +1,16 @@
 var ctx = document.getElementById('weightChart').getContext('2d');
 var config = {
     type: 'line',
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'Monthly Weight',
-            steppedLine: 'before',
-            data: [10, 9, 8, 7, 6, 5, 4],
-            fill: false,
-        }]
-    },
+    data: testMonthData,
     options: {
-        responsive: false,
-        tooltips: {
-            mode: 'index',
-            intersect: false,
-        },
-        hover: {
-            mode: 'nearest',
-            intersect: true
+        responsive: true,
+        title: {
+            display: false
         },
         scales: {
-            x: {
-                display: true,
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Month'
-                }
-            },
             y: {
-                display: true,
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Value'
-                }
+                min: 100,
+                max: 200
             }
         }
     }
@@ -49,6 +26,8 @@ var tableDiv = document.getElementById('dataTable');
 var myChart = new Chart(ctx, config);
 printBtn();
 createTable();
+
+
 
 function printBtn(){
     for (var i = 0; i < buttonLabels.length; i++){
@@ -89,13 +68,8 @@ function createTable(){
     
 }
 
-function generateDayOfData(){
-    var dayOfData = [];
 
-
-}
-
-
+   
 
 
 
