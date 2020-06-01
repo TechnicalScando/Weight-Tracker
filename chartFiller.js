@@ -4,31 +4,8 @@ const weekLabels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fri
 const weekTitle = ["This is a week of data"];
 const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-var testMonthDataSet = makeDatasetForMonth("Test Month of Data",
-  daysInMonth[0],
-  140,
-  150
-  );
-  var otherTestMonthDataSet = makeDatasetForMonth("Second Test Month of Data",
-  daysInMonth[1],
-  145,
-  155,
-  );
-
-  testDataSet = [];
-  testDataSet.push(testMonthDataSet);
-  testDataSet.push(otherTestMonthDataSet);
-  
-
- var testMonthData = makeData(createDaysLabel(daysInMonth[0]), testDataSet);
- 
-
-
-  
-
-
 function makeDataSet(label, steppedLine, data, fill){
-  var dataSet = {
+  let dataSet = {
     label: 'BLANK DATASET',
     steppedLine: 'false',
     data: ['BLANK DATA'],
@@ -44,7 +21,7 @@ function makeDataSet(label, steppedLine, data, fill){
 }
 
 function makeData(labels, dataSets){
-  var data = {
+  let data = {
     labels: 'BLANK LABEL',
     datasets: 'BLANK DATASETS'
   }
@@ -72,7 +49,7 @@ function makeArrayOfWeights(index,starting,ending){
 }
 
 function round(value, precision) {
-  var multiplier = Math.pow(10, precision || 0);
+  let multiplier = Math.pow(10, precision || 0);
   return Math.round(value * multiplier) / multiplier;
 }
 
@@ -90,6 +67,20 @@ function createDaysLabel(days){
     daysLabelArray.push(i);
   }
   return daysLabelArray;
+}
+
+function createWeekOfTableData(){
+  let tableData = {
+    dayOfTheWeek: 'DAYOFTHEWEEK',
+    month: 'MONTH',
+    withInGoalRange: 'FALSE',
+    differenceFromGoal: '0.0',
+    date: 'DATE',
+    weight: 'WEIGHT',
+    goal: 'GOAL',
+    goalLow: 'GOALLOW',
+    goalHigh: 'GOALHIGH'
+  }
 }
 
 

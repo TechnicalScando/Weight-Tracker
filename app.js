@@ -1,20 +1,65 @@
 var ctx = document.getElementById('weightChart').getContext('2d');
+var randomScalingFactor = function() {
+    return Math.round(Math.random() * 100);
+};
+
 var config = {
     type: 'line',
-    data: testMonthData,
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ],
+            fill: false,
+        }, {
+            label: 'My Second dataset',
+            fill: false,
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ],
+        }]
+    },
     options: {
         responsive: true,
         title: {
-            display: false
+            display: true,
+            text: 'Chart.js Line Chart'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
         },
         scales: {
-            y: {
-                min: 100,
-                max: 200
-            }
+          
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 200,
+                    stepSize: 5
+                }
+            }]
         }
     }
 };
+
 var monthButtonArray = document.getElementById("monthButtonArray");
 var buttonLabels = ['January', 'February', 'March', 'April', 'May', 
 'June', 'July', 'August', 'September', 'October', 
