@@ -2,37 +2,9 @@ var ctx = document.getElementById('weightChart').getContext('2d');
 var randomScalingFactor = function() {
     return Math.round(Math.random() * 100);
 };
-
 var config = {
     type: 'line',
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            data: [
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor()
-            ],
-            fill: false,
-        }, {
-            label: 'My Second dataset',
-            fill: false,
-            data: [
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor()
-            ],
-        }]
-    },
+    data: dataForYear,
     options: {
         responsive: true,
         title: {
@@ -51,17 +23,17 @@ var config = {
           
             yAxes: [{
                 ticks: {
-                    min: 0,
-                    max: 200,
-                    stepSize: 5
-                }
+                   min: 120,
+                   max: 185,
+                   stepSize: 5
+               }
             }]
         }
     }
 };
 
 var monthButtonArray = document.getElementById("monthButtonArray");
-var buttonLabels = ['January', 'February', 'March', 'April', 'May', 
+const buttonLabels = ['January', 'February', 'March', 'April', 'May', 
 'June', 'July', 'August', 'September', 'October', 
 'November', 'December'];
 var tableDiv = document.getElementById('dataTable');
@@ -69,8 +41,11 @@ var tableDiv = document.getElementById('dataTable');
 
 
 var myChart = new Chart(ctx, config);
-printBtn();
+console.log(yearOfData);
+console.log(dataForYear);
+//printBtn();
 createTable();
+
 
 
 
@@ -110,8 +85,9 @@ function createTable(){
         }
     }
     tableDiv.appendChild(table);
-    
 }
+
+
 
 
    
