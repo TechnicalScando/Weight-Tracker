@@ -1,17 +1,23 @@
-const monthLabels = ["January","February","March","April","May","June","July",
-"August","September","October","November","December"];
-const weekLabels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const monthLabels = ["January","February","March","April",
+"May","June","July",
+"August","September",
+"October","November",
+"December"];
+const weekLabels = ["Sunday", "Monday", "Tuesday", 
+"Wednesday", "Thursday", "Friday", "Saturday"];
 const weekTitle = ["This is a week of data"];
-const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 
+  30, 31, 30, 31];
 
 
 let yearOfDatasets = makeYearOfDatasets();
-let yearOfData = makeData(createDaysLabel(daysInMonth[0]),yearOfDatasets);
+let yearOfData = makeData(createDaysLabel(daysInMonth[0]),
+yearOfDatasets);
 let dataSetForYear = makeDataSetforYear(yearOfDatasets);
 let dataSetsForYear = [];
 dataSetsForYear.push(dataSetForYear);
 let dataForYear = makeData(monthLabels,dataSetsForYear);
-console.log(dataForYear);
+
 
 
 function makeDataSet(label, steppedLine, data, fill){
