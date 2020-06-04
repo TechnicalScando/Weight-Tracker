@@ -6,7 +6,7 @@ let config = {
         responsive: true,
         title: {
             display: true,
-            text: 'Chart.js Line Chart'
+            text: 'Weight Chart'
         },
         tooltips: {
             mode: 'index',
@@ -123,10 +123,10 @@ function addDataSet(monthDataSet) {
 }
 
 function getNewMinScale(data){
-    let min = 0;
+    let min = 300;
 
     for(let i = 0; i < data.length; i++){
-        if (data[i] > min){
+        if (data[i] < min){
             min = data[i];
         }
     }
