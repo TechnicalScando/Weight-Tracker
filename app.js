@@ -45,14 +45,16 @@ let btnClick = function buttonDataChange(){
     getNewMaxScale(newDataSet.data) + 5;
     myChart.options.scales.yAxes[0].ticks.stepSize = .1;
     addDataSet(newDataSet);
-   
+    
+    
 }
 
 
 
 let myChart = new Chart(ctx, config);
 printBtn();
-createTable();
+let tableDataSet = yearOfDatasets;
+createTable(parseDatasetsIntoTableRows(tableDataSet));
 
 
 
@@ -67,7 +69,7 @@ function printBtn(){
     }
 }
 
-function createTable(){
+function createTable(data){
     
     
     let table = document.createElement('table');
@@ -80,15 +82,16 @@ function createTable(){
     tableBody.height = '100%';
     table.appendChild(tableBody);
 
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < data.length; i++){
         let tr = document.createElement('tr');
         tableBody.appendChild(tr);
 
 
-        for(let j = 0; j < 9; j++){
+        for(let j = 0; j < data[i].length; j++){
             let td = document.createElement('td');
             td.width = '10px';
-            td.appendChild(document.createTextNode("'Cell " + i + "," + j));
+            tableRow = data[i]
+            td.appendChild(document.createTextNode(tableRow[j]));
             tr.appendChild(td);
         
         }
@@ -146,8 +149,40 @@ function getNewMaxScale(data){
     return max;
 }
 
+function parseDatasetsIntoTableRows(dataSet){
+let date;
+let weight;
 
+let dataForTable = [];
 
+    for (let i = 0; i < dataSet.length; i++){
+        for(let j = 0; j < dataSet[i].data.length; j++){
+            let tableRow = [];
+            date = new Date(2020, i, j + 1);
+            weight = yearOfDatasets[i].data[j];
+            tableRow = createRowTableData(date,weight);
+            dataForTable.push(tableRow);
+        }
+    }
+
+    return dataForTable;
+}
+
+function createRowTableData(date,weight){
+let tableRow = [];
+
+    let stringDate = date.toDateString();
+    splitDate = stringDate.split(" ");
+    let shortMonth = splitDate[1];
+    tableRow[0] = weekLabels[date.getDay()];
+    tableRow[1] = shortMonth;
+    tableRow[2] = stringDate;
+    tableRow[3] = weight;
+
+    return tableRow;
+  }
+
+  
 
 
  

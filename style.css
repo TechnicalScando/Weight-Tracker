@@ -14,10 +14,12 @@
 
 #dataTable{
     grid-column: 1 / 3;
-    overflow-y: auto;
+    overflow: auto;
     margin: 5px;
     padding: 5px;
     border-style: groove;
+    height: 200px;
+    display: block;
 }
 
 #monthButtonArray{
