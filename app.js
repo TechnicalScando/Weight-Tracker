@@ -37,7 +37,10 @@ let tableDiv = document.getElementById('dataTable');
 let btnClick = function buttonDataChange(){
     buttonMonth = this.textContent;
     newDataSet = getDataSetBasedOnMonth(buttonMonth);
-    removeDataset();
+    let newDataSets = [];
+    newDataSets.push(newDataSet);
+    let newTableDataset = parseDatasetsIntoTableRows(newDataSets);
+   removeDataset();
     
     myChart.options.scales.yAxes[0].ticks.min = 
     getNewMinScale(newDataSet.data) - 5;
@@ -46,6 +49,8 @@ let btnClick = function buttonDataChange(){
     myChart.options.scales.yAxes[0].ticks.stepSize = .1;
     addDataSet(newDataSet);
     
+    $('#example').dataTable().fnClearTable();
+ $('#example').dataTable().fnAddData(newTableDataset);
     
 }
 
@@ -55,6 +60,7 @@ let myChart = new Chart(ctx, config);
 printBtn();
 let tableDataSet = yearOfDatasets;
 let tableData = parseDatasetsIntoTableRows(tableDataSet);
+console.log(tableData);
 $(document).ready(function() {
     $('#example').DataTable( {
         data: tableData,
@@ -110,9 +116,11 @@ function createTable(data){
     tableDiv.appendChild(table);
 }
 
+
+
 function getDataSetBasedOnMonth(month){
     let matchingDataSets = [];
-    compareMonth = "Weight Data for " + month;
+    let compareMonth = "Weight Data for " + month;
     
     for(let i = 0; i < yearOfDatasets.length; i++){
         if (yearOfDatasets[i].label == compareMonth){
@@ -144,7 +152,6 @@ function getNewMinScale(data){
             min = data[i];
         }
     }
-    console.log("min is: " + min);
     return min;
 }
 
@@ -156,18 +163,17 @@ function getNewMaxScale(data){
             max = data[i];
         }
     }
-    console.log("max is: " + max);
     return max;
 }
 
-function parseDatasetsIntoTableRows(dataSet){
+function parseDatasetsIntoTableRows(dataSetToParse){
 let date;
 let weight;
 
 let dataForTable = [];
 
-    for (let i = 0; i < dataSet.length; i++){
-        for(let j = 0; j < dataSet[i].data.length; j++){
+    for (let i = 0; i < dataSetToParse.length; i++){
+        for(let j = 0; j < dataSetToParse[i].data.length; j++){
             let tableRow = [];
             date = new Date(2020, i, j + 1);
             weight = yearOfDatasets[i].data[j];
