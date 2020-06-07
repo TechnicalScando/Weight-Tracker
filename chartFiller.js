@@ -85,19 +85,7 @@ function createDaysLabel(days){
   return daysLabelArray;
 }
 
-function createRowTableData(){
-  let tableData = {
-    dayOfTheWeek: 'DAYOFTHEWEEK',
-    month: 'MONTH',
-    withInGoalRange: 'FALSE',
-    differenceFromGoal: '0.0',
-    date: 'DATE',
-    weight: 'WEIGHT',
-    goal: 'GOAL',
-    goalLow: 'GOALLOW',
-    goalHigh: 'GOALHIGH'
-  }
-}
+
 
 function makeYearOfDatasets(){
   let trendingWeight = 180;

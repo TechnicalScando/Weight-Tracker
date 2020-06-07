@@ -54,8 +54,19 @@ let btnClick = function buttonDataChange(){
 let myChart = new Chart(ctx, config);
 printBtn();
 let tableDataSet = yearOfDatasets;
-createTable(parseDatasetsIntoTableRows(tableDataSet));
-
+let tableData = parseDatasetsIntoTableRows(tableDataSet);
+$(document).ready(function() {
+    $('#example').DataTable( {
+        data: tableData,
+        columns: [
+            { title: "Day of The Week" },
+            { title: "Month" },
+            { title: "Date" },
+            { title: "Weight" }
+            
+        ]
+    } );
+} );
 
 
 
