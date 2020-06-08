@@ -177,7 +177,8 @@ let dataForTable = [];
             let month = 0;
             month = getMonthOfDataSet(dataSetToParse[i]);
             date = new Date(2020, month, j + 1);
-            weight = yearOfDatasets[i].data[j];
+            weight = yearOfDatasets[month].data[j];
+            console.log(i + " " + j + "\n" + yearOfDatasets[i].data[j]);
             tableRow = createRowTableData(date,weight);
             dataForTable.push(tableRow);
         }
@@ -201,10 +202,9 @@ let tableRow = [];
   }
 
   function getMonthOfDataSet(compareDataSet){
-      console.log('function called');
+    
     for(let i = 0; i < yearOfDatasets.length; i++){
         if (yearOfDatasets[i] == compareDataSet){
-            console.log('Index ' + i);
             return i;
         }
     }
