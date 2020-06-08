@@ -60,7 +60,6 @@ let myChart = new Chart(ctx, config);
 printBtn();
 let tableDataSet = yearOfDatasets;
 let tableData = parseDatasetsIntoTableRows(tableDataSet);
-console.log(tableData);
 $(document).ready(function() {
     $('#example').DataTable( {
         data: tableData,
@@ -175,7 +174,9 @@ let dataForTable = [];
     for (let i = 0; i < dataSetToParse.length; i++){
         for(let j = 0; j < dataSetToParse[i].data.length; j++){
             let tableRow = [];
-            date = new Date(2020, i, j + 1);
+            let month = 0;
+            month = getMonthOfDataSet(dataSetToParse[i]);
+            date = new Date(2020, month, j + 1);
             weight = yearOfDatasets[i].data[j];
             tableRow = createRowTableData(date,weight);
             dataForTable.push(tableRow);
@@ -198,6 +199,17 @@ let tableRow = [];
 
     return tableRow;
   }
+
+  function getMonthOfDataSet(compareDataSet){
+      console.log('function called');
+    for(let i = 0; i < yearOfDatasets.length; i++){
+        if (yearOfDatasets[i] == compareDataSet){
+            console.log('Index ' + i);
+            return i;
+        }
+    }
+    return 0;
+}
 
   
 
