@@ -61,11 +61,10 @@ printBtn();
 let tableDataSet = yearOfDatasets;
 let tableData = parseDatasetsIntoTableRows(tableDataSet);
 $(document).ready(function() {
+    $.fn.dataTable.moment('ddd mmm dd yyyy');
     $('#example').DataTable( {
         data: tableData,
         columns: [
-            { title: "Day of The Week" },
-            { title: "Month" },
             { title: "Date" },
             { title: "Weight" }
             
@@ -176,9 +175,10 @@ let dataForTable = [];
             let tableRow = [];
             let month = 0;
             month = getMonthOfDataSet(dataSetToParse[i]);
-            date = new Date(2020, month, j + 1);
+            let stringForMoment = j + 1 + "-" + month + "-" + 2020 ; 
+            date =  moment(stringForMoment,"dd-mm-yyyy")
+            console.log(date);
             weight = yearOfDatasets[month].data[j];
-            console.log(i + " " + j + "\n" + yearOfDatasets[i].data[j]);
             tableRow = createRowTableData(date,weight);
             dataForTable.push(tableRow);
         }
@@ -190,13 +190,10 @@ let dataForTable = [];
 function createRowTableData(date,weight){
 let tableRow = [];
 
-    let stringDate = date.toDateString();
-    splitDate = stringDate.split(" ");
-    let shortMonth = splitDate[1];
-    tableRow[0] = weekLabels[date.getDay()];
-    tableRow[1] = shortMonth;
-    tableRow[2] = stringDate;
-    tableRow[3] = weight;
+    
+    tableRow[0] = date;
+    tableRow[1] = weight;
+    
 
     return tableRow;
   }
@@ -209,6 +206,18 @@ let tableRow = [];
         }
     }
     return 0;
+}
+
+function switchBlocksInArray(array,firstIndex,secondIndex){
+    let switchedIndex;
+    let newArray = array;
+
+    switchedIndex = newArray[firstIndex];
+    newArray[firstIndex] = newArray[secondIndex];
+    newArray[secondIndex] = switchedIndex;
+
+    return newArray;
+
 }
 
   
