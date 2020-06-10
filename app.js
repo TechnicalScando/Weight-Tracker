@@ -61,7 +61,7 @@ printBtn();
 let tableDataSet = yearOfDatasets;
 let tableData = parseDatasetsIntoTableRows(tableDataSet);
 $(document).ready(function() {
-    $.fn.dataTable.moment('ddd mmm dd yyyy');
+    $.fn.dataTable.moment("MMM Do YYYY");
     $('#example').DataTable( {
         data: tableData,
         columns: [
@@ -175,9 +175,12 @@ let dataForTable = [];
             let tableRow = [];
             let month = 0;
             month = getMonthOfDataSet(dataSetToParse[i]);
-            let stringForMoment = j + 1 + "-" + month + "-" + 2020 ; 
-            date =  moment(stringForMoment,"dd-mm-yyyy")
-            console.log(date);
+            console.log("This is j: " + j);
+            console.log("This is month: " + month);
+            let stringForMoment = (month + 1) + " " + (j + 1) + " " + 2020 ; 
+            console.log(stringForMoment);
+            date =  moment(stringForMoment,"MM Do YY")
+            date = moment(date).format("MMM Do YYYY");
             weight = yearOfDatasets[month].data[j];
             tableRow = createRowTableData(date,weight);
             dataForTable.push(tableRow);
