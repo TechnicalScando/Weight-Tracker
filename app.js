@@ -25,6 +25,9 @@ let config = {
                    stepSize: 5
                }
             }]
+        },
+        legend: {
+            display:false
         }
     }
 };
@@ -174,11 +177,9 @@ let dataForTable = [];
         for(let j = 0; j < dataSetToParse[i].data.length; j++){
             let tableRow = [];
             let month = 0;
+           
             month = getMonthOfDataSet(dataSetToParse[i]);
-            console.log("This is j: " + j);
-            console.log("This is month: " + month);
             let stringForMoment = (month + 1) + " " + (j + 1) + " " + 2020 ; 
-            console.log(stringForMoment);
             date =  moment(stringForMoment,"MM Do YY")
             date = moment(date).format("MMM Do YYYY");
             weight = yearOfDatasets[month].data[j];
