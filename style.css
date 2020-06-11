@@ -14,12 +14,6 @@
 
 #dataTable{
     grid-column: 1 / 3;
-    /* overflow: auto;
-    margin: 5px;
-    padding: 5px;
-    border-style: groove;
-    height: 200px;
-    display: block; */
 }
 
 #monthButtonArray{
@@ -43,6 +37,20 @@
     border-bottom: groove;
     padding: 2px;
     
+}
+
+#dataButtons {
+    height: fit-content;
+    margin: 2px;
+    padding: 2px;
+}
+
+#cleardata,
+#adddata,
+#removedata {
+    float: left;
+    width: 30%;
+    margin: 3px;
 }
 
 body {

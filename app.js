@@ -27,7 +27,7 @@ let config = {
             }]
         },
         legend: {
-            display:false
+            display: false
         }
     }
 };
@@ -86,38 +86,6 @@ function printBtn(){
         monthButtonArray.appendChild(btn);
     }
 }
-
-function createTable(data){
-    
-    
-    let table = document.createElement('table');
-    table.border = 1;
-    table.width = '100%';
-    table.height = '100%';
-    
-    let tableBody = document.createElement('tbody');
-    tableBody.width = '100%';
-    tableBody.height = '100%';
-    table.appendChild(tableBody);
-
-    for (let i = 0; i < data.length; i++){
-        let tr = document.createElement('tr');
-        tableBody.appendChild(tr);
-
-
-        for(let j = 0; j < data[i].length; j++){
-            let td = document.createElement('td');
-            td.width = '10px';
-            tableRow = data[i]
-            td.appendChild(document.createTextNode(tableRow[j]));
-            tr.appendChild(td);
-        
-        }
-    }
-    tableDiv.appendChild(table);
-}
-
-
 
 function getDataSetBasedOnMonth(month){
     let matchingDataSets = [];
