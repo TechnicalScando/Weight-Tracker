@@ -57,12 +57,18 @@ let btnClick = function buttonDataChange(){
     
 }
 
+let clearBtnclick = function clearBtnClick(){
+    removeDataset();
+}
+
 
 
 let myChart = new Chart(ctx, config);
 printBtn();
 let tableDataSet = yearOfDatasets;
 let tableData = parseDatasetsIntoTableRows(tableDataSet);
+let clearBtn = document.getElementById('cleardata');
+clearBtn.onclick = clearBtnclick;
 $(document).ready(function() {
     $.fn.dataTable.moment("MMM Do YYYY");
     $('#example').DataTable( {
