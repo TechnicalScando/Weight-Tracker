@@ -59,6 +59,7 @@ let btnClick = function buttonDataChange(){
 
 let clearBtnclick = function clearBtnClick(){
     removeDataset();
+    clearYearOfDataSets()
 }
 
 
@@ -198,6 +199,11 @@ function switchBlocksInArray(array,firstIndex,secondIndex){
 
 }
 
+function clearYearOfDataSets(){
+    for(let i = 0; i < yearOfDatasets.length; i++){
+        yearOfDatasets[i].data = [null];
+    }
+}  
   
 
 
