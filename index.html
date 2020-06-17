@@ -24,11 +24,23 @@
             <div id='monthButtonArray'>
                 <h6 id="buttonHeader">Filter By Month</h6>
             </div>
+
             <canvas id="weightChart"></canvas>
+
             <div id='dataButtons'> 
                 <button id="cleardata">Clear Data</button>
                 <button id="adddata">Add Data</button>
                 <button id="removedata">Remove Data</button>
+                </div>
+            <div id='inputform'>
+
+            <form id="frm1" action="/action_page.php">
+                Weight: <input type="text" name="fname"><br>
+                Date: <input type="text" name="lname"><br><br>
+                <input type="button" onclick="myFunction()" value="Submit">
+              </form>
+            
+
             </div>
             <div id="dataTable" >
                 <table id="example" class="display" width="100%"></table>

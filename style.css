@@ -53,6 +53,10 @@
     margin: 3px;
 }
 
+#inputform{
+    border: groove;
+}
+
 body {
     width: 100%;
     max-width: 1024px;
@@ -65,3 +69,9 @@ button {
     padding: 6px;
 }
 
+input{
+    margin: 2px;
+    width: 75%;
+    padding: 2px;
+    float: right;
+}
